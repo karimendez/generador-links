@@ -1,19 +1,22 @@
-# 🎈 Blank app template
 
-A simple Streamlit app template for you to modify!
+# Generador de Links (Reemplazo Excel)
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://blank-app-template.streamlit.app/)
+Esta app reemplaza tu Excel/macros y te permite:
+- Mantener catálogos editables: **Categorías (prefijos)**, **Tipos (códigos)** y **Elementos** (campos extra).
+- Generar links automáticamente agregando `hid=` y opcionalmente otros parámetros.
+- Guardar cada link en un **historial**.
+- Exportar todo a Excel o respaldar la base SQLite.
 
-### How to run it on your own machine
+## Cómo correr
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
 
-1. Install the requirements
+## Qué es un "Elemento"
+Un elemento es un campo extra que podés agregar sin tocar código (ej: `campaign`, `placement`, `subcat`, etc.).
+- `Include in HID`: agrega ese valor al final del HID, separado por `_`.
+- `Include as query param`: agrega `&key=valor` en la URL.
 
-   ```
-   $ pip install -r requirements.txt
-   ```
-
-2. Run the app
-
-   ```
-   $ streamlit run streamlit_app.py
-   ```
+## Base de datos
+Se guarda en `links.db` (SQLite) en la misma carpeta.
